@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -32,6 +32,7 @@
 		00D1520B27B01C5F002E5784 /* WatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D1520A27B01C5F002E5784 /* WatchlistViewController.swift */; };
 		00D1520D27B01C72002E5784 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D1520C27B01C71002E5784 /* FavoritesViewController.swift */; };
 		62900F663B9E89189CF9B71E /* Pods_MovieManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B15009416C2E5A43C5982AC /* Pods_MovieManager.framework */; };
+		688BBEA127B3B0A40041FC07 /* ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688BBEA027B3B0A40041FC07 /* ScrollView.swift */; };
 		CE2010E1D46CFA3D7E19A482 /* Pods_MovieManagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2F53691E7EFE8DEB18D861A /* Pods_MovieManagerTests.framework */; };
 		F6A30F30330BE1B39E9B017A /* Pods_MovieManager_MovieManagerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3A79477AD75CBBD935D570D /* Pods_MovieManager_MovieManagerUITests.framework */; };
 /* End PBXBuildFile section */
@@ -86,6 +87,7 @@
 		426FB6B6725A2DB18E56D9BD /* Pods-MovieManagerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieManagerTests.debug.xcconfig"; path = "Target Support Files/Pods-MovieManagerTests/Pods-MovieManagerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		57EBD7CB43062FBB25D425A3 /* Pods-MovieManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieManager.release.xcconfig"; path = "Target Support Files/Pods-MovieManager/Pods-MovieManager.release.xcconfig"; sourceTree = "<group>"; };
 		5A393344D8067396724B4F5D /* Pods-MovieManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieManagerTests.release.xcconfig"; path = "Target Support Files/Pods-MovieManagerTests/Pods-MovieManagerTests.release.xcconfig"; sourceTree = "<group>"; };
+		688BBEA027B3B0A40041FC07 /* ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollView.swift; sourceTree = "<group>"; };
 		7B15009416C2E5A43C5982AC /* Pods_MovieManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2F53691E7EFE8DEB18D861A /* Pods_MovieManagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieManagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9AF1D3BD1DF92EAF7E06DB9 /* Pods-MovieManager-MovieManagerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieManager-MovieManagerUITests.debug.xcconfig"; path = "Target Support Files/Pods-MovieManager-MovieManagerUITests/Pods-MovieManager-MovieManagerUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				009A332627B08B75000320CA /* TableView.swift */,
 				009A334A27B312FF000320CA /* CustomCell.swift */,
 				009A334C27B314D5000320CA /* MovieCell.swift */,
+				688BBEA027B3B0A40041FC07 /* ScrollView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -337,7 +340,7 @@
 				};
 			};
 			buildConfigurationList = 00D151C227AFFC60002E5784 /* Build configuration list for PBXProject "MovieManager" */;
-			compatibilityVersion = "Xcode 13.0";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -503,6 +506,7 @@
 				009A334127B2610E000320CA /* DetailViewController.swift in Sources */,
 				00D1520527B01A23002E5784 /* TabBarViewController.swift in Sources */,
 				00D1520B27B01C5F002E5784 /* WatchlistViewController.swift in Sources */,
+				688BBEA127B3B0A40041FC07 /* ScrollView.swift in Sources */,
 				009A334327B2D156000320CA /* UserManager.swift in Sources */,
 				00D1520727B01C1E002E5784 /* NavigationController.swift in Sources */,
 				009A333D27B171EE000320CA /* Response.swift in Sources */,
@@ -687,6 +691,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -715,6 +720,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class DetailViewController: BaseViewController {
     lazy public var movieId : Int = 0
@@ -24,10 +25,10 @@ class DetailViewController: BaseViewController {
         
     }
     func fetchMovieDetail() {
-        showLoading()
+        //showLoading()
         let req = RequestObj()
         AppRequestManager().get(.movieDetail(movieId: movieId), MovieDetail.self, req.toJSON()) { (data, error) in
-            self.hideLoading()
+            //self.hideLoading()
             if let err = error {
                 print(err)
             }else {
@@ -45,10 +46,30 @@ class DetailViewController: BaseViewController {
         }
     }
     func setUI(){
+        let scroll = ScrollView()
+        self.view.addSubview(scroll);
+               scroll.snp.makeConstraints { (make) in
+                   make.top.equalToSuperview()
+       //            make.top.equalToSuperview()
+                   make.left.right.equalToSuperview()
+                   make.centerX.equalToSuperview()
+                  make.bottom.equalToSuperview()
+               }
+               let contentView = UIView()
+               scroll.addSubview(contentView)
+               contentView.snp.makeConstraints { (make) in
+                   make.top.equalToSuperview()
+                   make.bottom.equalToSuperview()
+                   make.left.right.equalToSuperview()
+                   make.centerX.equalToSuperview()
+                   make.height.greaterThanOrEqualTo(0)
+               }
+               
+              
         let imageUrl = URL(string: String(format: "%@%@", "https://image.tmdb.org/t/p/w500/",imagePath))
         let imageBack = UIView()
         
-        self.view.addSubview(imageBack)
+        contentView.addSubview(imageBack)
         imageBack.snp.makeConstraints{(make) in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
             make.left.right.equalToSuperview()
@@ -66,15 +87,15 @@ class DetailViewController: BaseViewController {
             
         }
         
-        let scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(scrollView)
-        scrollView.snp.makeConstraints { (make) in
-            make.top.leading.trailing.equalToSuperview()
-        }
-        
+//        let scrollView = UIScrollView()
+//        scrollView.translatesAutoresizingMaskIntoConstraints = false
+//        self.view.addSubview(scrollView)
+//        scrollView.snp.makeConstraints { (make) in
+//            make.top.leading.trailing.equalToSuperview()
+//        }
+//
         let starView = UIView()
-        self.view.addSubview(starView)
+        contentView.addSubview(starView)
         starView.snp.makeConstraints{(make) in
             make.top.equalTo(imageBack.snp.bottom).offset(20)
             make.left.right.equalToSuperview()
@@ -125,22 +146,21 @@ class DetailViewController: BaseViewController {
         descView.text = desc
         descView.font = UIFont.systemFont(ofSize: 15)
         descView.isUserInteractionEnabled =  false
-        self.view.addSubview(descView)
+        contentView.addSubview(descView)
         descView.snp.makeConstraints{(make) in
             make.top.equalTo(starView.snp.bottom).offset(20)
             make.left.equalToSuperview().offset(10)
             make.right.equalToSuperview().offset(-15)
-            make.bottom.equalTo(scrollView.snp.bottom).offset(-100)
+            make.height.equalTo(150)
         }
         
         let buttonView = UIView()
         buttonView.backgroundColor = UIColor(red: 186/255.0, green: 186/255.0, blue: 186/255.0, alpha: 1.0)
         self.view.addSubview(buttonView)
         buttonView.snp.makeConstraints{(make) in
-            make.top.equalTo(scrollView.snp.bottom)
+            make.top.equalTo(scroll.snp.bottom).offset(-60)
             make.left.right.equalToSuperview()
-            make.bottom.trailing.equalToSuperview()
-            make.height.equalTo(80)
+            make.height.equalTo(60)
         }
         
         listButton = UIButton()
@@ -168,7 +188,7 @@ class DetailViewController: BaseViewController {
     }
     
     @objc func addFavorite() {
-        showLoading()
+        //showLoading()
         favButton.isEnabled = false
         let req = FavRequest()
         req.mediaID = movieId
@@ -177,7 +197,7 @@ class DetailViewController: BaseViewController {
         
         print(req)
         AppRequestManager().get(.addFavorite(accountId: UserManager.accountId, sessionId: UserManager.sessionId), AddFavorite.self, req.toJSON()) { (data, error) in
-            self.hideLoading()
+            //self.hideLoading()
             if error != nil {
                 
                 self.showAlert(message: "Failure adding to favorites")
@@ -191,7 +211,7 @@ class DetailViewController: BaseViewController {
     }
     
     @objc func addWatchlist() {
-        showLoading()
+        //showLoading()
         listButton.isEnabled = false
         let req = WatchlistRequest()
         req.mediaID = movieId
@@ -199,7 +219,7 @@ class DetailViewController: BaseViewController {
         req.watchlist = true
         
         AppRequestManager().get(.addWatchlist(accountId: UserManager.accountId, sessionId: UserManager.sessionId), AddWatchlist.self, req.toJSON()) { (data, error) in
-            self.hideLoading()
+           // self.hideLoading()
             if error != nil {
                 self.showAlert(message:"Failure adding to watchlist")
                 self.listButton.isEnabled = true
