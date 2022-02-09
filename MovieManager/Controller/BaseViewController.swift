@@ -38,13 +38,7 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
         hideLoading();
         DispatchQueue.main.async {
             self.hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-//            let imageView = UIImageView()
-//            imageView.kf.setImage(with: Bundle.main.url(forResource: "Loading", withExtension: "gif"))
-//            imageView.snp.makeConstraints { (make) in
-//                make.size.equalTo(45)
-//            }
             if let hudd = self.hud{
-            //hudd.customView = imageView
             hudd.mode = .annularDeterminate
             hudd.bezelView.color = UIColor.gray.withAlphaComponent(0.3)
             hudd.bezelView.style = .solidColor
@@ -56,7 +50,6 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
             if let hudd = self.hud {
                 hudd.hide(animated: true)
             }
-            
         }
     }
     
